@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{% block title %} Video Game API {% endblock %}</h1>
+
+<div id="content">
+    <div class="pres">
+        <h1>VideoGame API</h1>
+        <p class="pressP">This is the VideoGame API</p>
+        <p>Here you will find all information to access raw data generated and used by VideoGame API.</p>
+    </div>
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading"> 🚧 Under construction 🚧</h4>
+        <p>Please note that VideoGame API is still in development phase and might change existing endpoints even in V1</p>
+    </div>
+</div>
+
+
+<!-- Il faut faire cette partie en js only sans flask-->
+<div id="videoGames">
+    <script>
+        let i = 0;
+        let max = videoGames.length;
+        console.log(max);
+    </script>
+    {% for videoGame in videoGames %}
+    <!-- #Ce bolc est exécuté uniquement sur //getVideoGamesList -->
+    <div>
+        <h2>{{ videoGame['id'] }}</h2>
+    </div>
+
+    <!-- <span class="badge badge-primary">{{ videoGame['created'] }}</span> -->
+    <hr> {% endfor %} {% endblock %}
+</div>

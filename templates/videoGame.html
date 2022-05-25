@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h2>{% block title %} {{ videoGame['name'] }} {% endblock %}</h2>
+<span class="badge badge-primary">{{ videoGame['created'] }}</span>
+<p>{{ videoGame['id'] }}</p>
+<p>{{ videoGame['name'] }}</p>
+<p>{{ videoGame['type'] }}</p>
+<p>{{ videoGame['release-date'] }}</p>
+<p>{{ videoGame['release-year'] }}</p>
+<p>{{ videoGame['description'] }}</p>
+<p>{{ videoGame['pegi'] }}</p>
+<p>{{ videoGame['devices'] }}</p>
+
+{% endblock %}
