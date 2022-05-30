@@ -1,13 +1,248 @@
 {% extends 'base.html' %} {% block content %}
-<h2>{% block title %} {{ videoGame['name'] }} {% endblock %}</h2>
-<span class="badge badge-primary">{{ videoGame['created'] }}</span>
-<p>{{ videoGame['id'] }}</p>
-<p>{{ videoGame['name'] }}</p>
-<p>{{ videoGame['type'] }}</p>
-<p>{{ videoGame['release-date'] }}</p>
-<p>{{ videoGame['release-year'] }}</p>
-<p>{{ videoGame['description'] }}</p>
-<p>{{ videoGame['pegi'] }}</p>
-<p>{{ videoGame['devices'] }}</p>
 
+<h1>{% block title %} Video Game API {% endblock %}</h1>
+
+<div id="resources_container" class="container">
+    <ul id="resources">
+        <li id="resource_Videogames" class="resource">
+            <div class="heading">
+                <a class="toggleEndpointList" href="#!/Videogames" data-id="VideoGames">VideoGames</a>
+                <ul class="options">
+                    <li>
+                        <a id="endpointListTogger_Videogames" class="toggleEndpointList" href="#!/Videogames" data-id="VideoGames" data-sw-translate="">Show/hide</a>
+                    </li>
+                    <li>
+                        <a class="collapseResource" href="#" data-id="VideoGames" data-sw-translate="">List Operations</a>
+                    </li>
+                    <li>
+                        <a class="expandResource" href="#" data-id="VideoGames" data-sw-translate="">Expand Operations</a>
+                    </li>
+                </ul>
+            </div>
+            <ul id="Videogames_endpoint_list" class="endpoint">
+                <li class="endpoint">
+                    <ul class="operations">
+                        <li id="Videogames_Videogames_get" class="get operation">
+                            <div class="heading" id="inblue">
+                                <h3>
+                                    <span class="http_method">
+                                        <a class="toggleOperation" href="#!/Videogames/Videogames_Get">get</a>
+                                    </span>
+                                    <span class="path">
+                                        <a id="getVideogames" class="toggleOperation" href="#!/Videogames/Videogames_Get">/v1/VideoGames/{videogameId}</a>
+                                    </span>
+                                </h3>
+                                <ul class="options">
+                                    <li>
+                                        <a class="toggleOperation" href="#!/Videogames/Videogames_Get">
+                                            <span class="markdown">
+                                                <p>Provides a list of all videoGames</p>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="Videogames_Videogames_Get_content" class="content">
+                                <div class="response-class">
+                                    <h4>
+                                        <span data-sw-translate="">Response Class</span> (
+                                        <span data-sw-translate="">Status</span> 200)
+                                    </h4>
+                                    <div class="markdown">
+                                        <p>OK</p>
+                                    </div>
+                                    <p>
+                                        <span id="model-signature" class="model-signature">
+                                            <div>
+                                                <div>
+                                                    <ul class="signature-nav">
+                                                        <li>
+                                                            <a id="model" class="description-link" href="#" data-sw-translate="">Model</a>
+                                                        </li>
+                                                        <li>
+                                                            <a id="example" class="snippet-link-selected" href="#" data-sw-translate="">Example Value</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div>
+                                                        <div id="signature-container" class="signature-container">
+                                                            <div id="description" class="description" style="display: none">
+                                                                <span class="strong">Inline Model [ </span>
+                                        <div>Inline Model 1</div>
+                                        <span class="strong">] </span>
+                                        <br>
+                                        <span class="strong">Inline Model 1 {</span>
+                                        <div>
+                                            <span class="propName">Id</span> (
+                                            <span class="propType">integer</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The videogame id for susequent requests</p>
+																	</span>
+                                        </div>
+                                        <div>
+                                            <span class="propName">Name</span> (
+                                            <span class="propType">string</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The name of the videogame</p>
+																	</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Type</span> (
+                                            <span class="propType">string</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The type of the videogame</p>
+																	</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Release-date</span> (
+                                            <span class="propType">string</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The release date of the videogame</p>
+																		</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Release-year</span> (
+                                            <span class="propType">integer</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The release year of the videogame</p>
+																	</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Description</span> (
+                                            <span class="propType">string</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The description of the videogame</p>
+																	</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Pegi</span> (
+                                            <span class="propType">integer</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The pegi of the videogame=[3,7,12,16,18]</p>
+																	</span> ,
+                                        </div>
+                                        <div>
+                                            <span class="propName">Devices</span> (
+                                            <span class="propType">string</span> ,
+                                            <span class="propOptKey">optional</span>):
+                                            <span class="propDesc markdown">
+																		<p>The devices of the videogame</p>
+																	</span>
+                                        </div>
+                                        <span class="strong">}</span>
+                                </div>
+                                <div id="snippet" class="snippet" style="display:block;">
+                                    <div class="snipped_json" style="display:block;">
+                                        <pre id="pre">
+                                            <code id="code">
+                                                <p>[</p>
+                                                <p class="dec-1">{</p>
+                                                <div class="div-code dec-2">
+                                                    <p>"Id":</p>
+                                                    <p>"{{ videoGame['id'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Name":</p>
+                                                    <p>"{{ videoGame['name'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Type":</p>
+                                                    <p>"{{ videoGame['type'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Release-date":</p>
+                                                    <p>"{{ videoGame['release-date'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Release-year":</p>
+                                                    <p>"{{ videoGame['release-year'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Description":</p>
+                                                    <p>"{{ videoGame['description'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Pegi":</p>
+                                                    <p>"{{ videoGame['pegi'] }}"</p>
+                                                </div>
+                                                <div class="div-code dec-2">
+                                                    <p>"Devices":</p>
+                                                    <p>"{{ videoGame['devices'] }}"</p>
+                                                </div>
+                                                <p class="dec-1">}</p>
+                                                <p>]</p>
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+</div>
+</div>
+</div>
+</span>
+</p>
+<br>
+<div class="response-content-type">
+    <div>
+        <label data-sw-translate="" for="responseContentType">Response Content Type</label>
+        <select id="responseContentType" name="responseContentType">
+												<option value="application/json">application/json</option>
+												<option value="text/json">text/json</option>
+												<option value="application/xml">application/xml</option>
+												<option value="test/xml">test/xml</option>
+											</select>
+    </div>
+</div>
+</div>
+<form id="form" class="sandbox" accept-charset="UTF-8">
+    <h4>Parameters</h4>
+    <table class="fullwidth parameters">
+        <thead>
+            <tr>
+                <th style="width: 100px; max-width: 100px" data-sw-translate="">Parameter</th>
+                <th style="width: 100px; max-width: 100px" data-sw-translate="">Value</th>
+                <th style="width: 100px; max-width: 100px" data-sw-translate="">Description</th>
+                <th style="width: 100px; max-width: 100px" data-sw-translate="">Parameter Type</th>
+                <th style="width: 100px; max-width: 100px" data-sw-translate="">Data Type</th>
+            </tr>
+        </thead>
+        <tbody class="operation-params">
+            <tr>
+                <td>videogameId</td>
+                <td>
+                    <input class="parameter required" minlength="1" name="eventId" placeholder="(required)" id="videoGameId" type="text" value="">
+                </td>
+                <td>
+                    <strong>
+															<span class="markdown">
+																<p>Required: The video game id for which it should be returned</p>
+															</span>
+														</strong>
+                </td>
+                <td>path</td>
+                <td>
+                    <span class="model-signature">integer</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="sandbox_header">
+        <input id="input" class="submit" type="button" value="Try it out!" data-sw-translate="">
+    </div>
+</form>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 {% endblock %}

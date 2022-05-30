@@ -2,7 +2,7 @@
 /*jslint devel: true */
 /*jslint node: true */
 /*jslint for: true */
-/*jshint: -W109 */
+/*jshint: -W109 -W085*/
 /*jslint: white:true; */
 /*eslint semi: "error" */
 /*eslint quotes: ["Error","double"] */
@@ -17,6 +17,14 @@
 
 const getVideogames = document.getElementById("getVideogames");
 const Videogames_Videogames_Get_content = document.getElementById("Videogames_Videogames_Get_content");
+const model = document.getElementById("model");
+const example = document.getElementById("example");
+const snippet = document.getElementById("snippet");
+const description = document.getElementById("description");
+//const code = document.getElementById("code");
+const input = document.getElementById("input");
+const videoGameId = document.getElementById("videoGameId");
+const form = document.getElementById("form");
 
 getVideogames.addEventListener("click", function() {
     if (Videogames_Videogames_Get_content.style.display === "block") {
@@ -24,4 +32,31 @@ getVideogames.addEventListener("click", function() {
     } else {
         Videogames_Videogames_Get_content.style.display = "block";
     }
+});
+
+model.addEventListener("click", function() {
+    if (description.style.display === "none") {
+        snippet.style.display = "none";
+        description.style.display = "block";
+        model.style.color = "black";
+        example.style.color = "#AAA";
+    }
+});
+
+example.addEventListener("click", function() {
+    if (snippet.style.display === "none") {
+        description.style.display = "none";
+        snippet.style.display = "block";
+        example.style.color = "black";
+        model.style.color = "#AAA";
+    }
+});
+
+input.addEventListener("click", function() {
+    const id = videoGameId.value;
+    const url = "http://127.0.0.1:5000/id=" + id;
+    form.action = url;
+    form.submit();
+    //getVideogameById(id);
+    //On crée une fonction pour récupérer le texte que l'on veut mettre
 });

@@ -35,8 +35,6 @@ def getVideoGamesList():
             print(type(dictData))
             videoGames=json.dumps(dictData)
         #https://codehandbook.org/working-with-json-in-python-flask/
-        
-        
     except:
         print ("error", sys.exc_info()[0])
 
