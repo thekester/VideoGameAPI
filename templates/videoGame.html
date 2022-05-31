@@ -216,7 +216,7 @@
             <tr>
                 <td>videogameId</td>
                 <td>
-                    <input class="parameter required" minlength="1" name="eventId" placeholder="(required)" id="videoGameId" type="text" value="">
+                    <input class="parameter required" minlength="1" name="eventId" placeholder="(required)" id="videoGameId" type="number" min="0" value="">
                 </td>
                 <td>
                     <strong>
@@ -236,6 +236,8 @@
         <input id="input" class="submit" type="button" value="Try it out!" data-sw-translate="">
     </div>
 </form>
+<div id="error-form">
+</div>
 </div>
 </div>
 </li>

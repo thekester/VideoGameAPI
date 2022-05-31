@@ -14,6 +14,7 @@
 /*eslint eol-last: ["error","never"] */
 /*eslint prefer-const: "error"*/
 /*eslint camelcase: "off"*/
+/// <reference path="jquery-3.6.0.js" />
 
 const getVideogames = document.getElementById("getVideogames");
 const Videogames_Videogames_Get_content = document.getElementById("Videogames_Videogames_Get_content");
@@ -25,6 +26,13 @@ const description = document.getElementById("description");
 const input = document.getElementById("input");
 const videoGameId = document.getElementById("videoGameId");
 const form = document.getElementById("form");
+const error_form = document.getElementById("error-form");
+
+fetch("http://127.0.0.1:5000/jeux.json")
+    .then(response => response.json())
+    .then(data => {
+        videoGameId.max = Object.keys(data).length;
+    });
 
 getVideogames.addEventListener("click", function() {
     if (Videogames_Videogames_Get_content.style.display === "block") {
@@ -54,9 +62,21 @@ example.addEventListener("click", function() {
 
 input.addEventListener("click", function() {
     const id = videoGameId.value;
-    const url = "http://127.0.0.1:5000/id=" + id;
-    form.action = url;
-    form.submit();
+    fetch("http://127.0.0.1:5000/jeux.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const keyCount = Object.keys(data).length;
+            if (id < 0) {
+                error_form.textContent = "ERROR l'id est supérieur à 0";
+            } else if (id > keyCount) {
+                error_form.textContent = "ERROR l'id est inféérieur à " + keyCount;
+            } else {
+                const url = "http://127.0.0.1:5000/id=" + id;
+                form.action = url;
+                form.submit();
+            }
+        });
     //getVideogameById(id);
     //On crée une fonction pour récupérer le texte que l'on veut mettre
 });

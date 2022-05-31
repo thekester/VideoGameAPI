@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 app = Flask(__name__)
 
 def get_videoGame(videoGame_id):
-    with open('jeux.json') as j:
+    with open('templates/jeux.json') as j:
             dictData = json.load(j)
             theVideoGame=dictData[videoGame_id]
     if theVideoGame is None:
@@ -19,6 +19,10 @@ def index():
 def documentation():
     return render_template('documentation.html')
 
+@app.route('/jeux.json')
+def jeux():
+    return render_template('jeux.json')
+
 @app.route('/documentation')
 def documentation():
     return render_template('documentation.html')
@@ -30,7 +34,7 @@ def about():
 @app.route("/getVideoGamesList") #Rame trop
 def getVideoGamesList():
     try:
-        with open('jeux.json') as j:
+        with open('http://127.0.0.1:5000/jeux.json') as j:
             dictData = json.load(j)
             print(type(dictData))
             videoGames=json.dumps(dictData)
